@@ -91,7 +91,7 @@ func TestPrepareBuild(t *testing.T) {
 	expected := bundle.Image{Description: "component1"}
 	expected.Image = "component1:0.1.0"
 	expected.ImageType = "docker"
-	if !reflect.DeepEqual(b.Images[0], expected) {
-		t.Errorf("expected %v, got %v", expected, b.Images[0])
+	if !reflect.DeepEqual(b.Images["component1"], expected) {
+		t.Errorf("expected %v, got %v", expected, b.Images["component1"])
 	}
 }

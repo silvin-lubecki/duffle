@@ -18,7 +18,7 @@ type Bundle struct {
 	Keywords         []string                       `json:"keywords,omitempty" mapstructure:"keywords,omitempty"`
 	Maintainers      []Maintainer                   `json:"maintainers,omitempty" mapstructure:"maintainers,omitempty"`
 	InvocationImages []InvocationImage              `json:"invocationImages" mapstructure:"invocationImages"`
-	Images           []Image                        `json:"images" mapstructure:"images"`
+	Images           map[string]Image               `json:"images" mapstructure:"images"`
 	Actions          map[string]Action              `json:"actions,omitempty" mapstructure:"actions,omitempty"`
 	Parameters       map[string]ParameterDefinition `json:"parameters" mapstructure:"parameters"`
 	Credentials      map[string]Location            `json:"credentials" mapstructure:"credentials"`
@@ -82,8 +82,7 @@ type ImagePlatform struct {
 // Image describes a container image in the bundle
 type Image struct {
 	BaseImage
-	Description string        `json:"description" mapstructure:"description"` //TODO: change? see where it's being used? change to description?
-	Refs        []LocationRef `json:"refs" mapstructure:"refs"`
+	Description string `json:"description" mapstructure:"description"` //TODO: change? see where it's being used? change to description?
 }
 
 // InvocationImage contains the image type and location for the installation of a bundle
