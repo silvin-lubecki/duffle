@@ -76,7 +76,7 @@ func (b *Builder) PrepareBuild(bldr *Builder, mfst *manifest.Manifest, appDir st
 	bf := &bundle.Bundle{
 		Name:        ctx.Manifest.Name,
 		Description: ctx.Manifest.Description,
-		Images:      []bundle.Image{},
+		Images:      map[string]bundle.Image{},
 		Keywords:    ctx.Manifest.Keywords,
 		Maintainers: ctx.Manifest.Maintainers,
 		Parameters:  ctx.Manifest.Parameters,
