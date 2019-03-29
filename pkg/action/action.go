@@ -22,7 +22,6 @@ const notStateless = false
 // - install
 // - upgrade
 // - uninstall
-// - downgrade
 // - status
 type Action interface {
 	// Run an action, and record the status in the given claim
