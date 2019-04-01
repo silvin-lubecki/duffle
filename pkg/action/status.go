@@ -13,6 +13,9 @@ type Status struct {
 	Driver driver.Driver
 }
 
+// makes sure Status implements Action interface
+var _ Action = &Status{}
+
 // Run executes a status action in an image
 func (i *Status) Run(c *claim.Claim, creds credentials.Set, w io.Writer) error {
 	return (&RunCustom{Driver: i.Driver, Action: "io.cnab.status"}).Run(c, creds, w)

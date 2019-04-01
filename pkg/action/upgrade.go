@@ -13,6 +13,9 @@ type Upgrade struct {
 	Driver driver.Driver
 }
 
+// makes sure Upgrade implements Action interface
+var _ Action = &Upgrade{}
+
 // Run performs the upgrade steps and updates the Claim
 func (u *Upgrade) Run(c *claim.Claim, creds credentials.Set, w io.Writer) error {
 	invocImage, err := selectInvocationImage(u.Driver, c)

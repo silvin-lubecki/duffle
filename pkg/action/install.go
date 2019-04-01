@@ -13,6 +13,9 @@ type Install struct {
 	Driver driver.Driver // Needs to be more than a string
 }
 
+// makes sure Install implements Action interface
+var _ Action = &Install{}
+
 // Run performs an installation and updates the Claim accordingly
 func (i *Install) Run(c *claim.Claim, creds credentials.Set, w io.Writer) error {
 	invocImage, err := selectInvocationImage(i.Driver, c)

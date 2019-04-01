@@ -13,6 +13,9 @@ type Uninstall struct {
 	Driver driver.Driver
 }
 
+// makes sure Uninstall implements Action interface
+var _ Action = &Uninstall{}
+
 // Run performs the uninstall steps and updates the Claim
 func (u *Uninstall) Run(c *claim.Claim, creds credentials.Set, w io.Writer) error {
 	invocImage, err := selectInvocationImage(u.Driver, c)
